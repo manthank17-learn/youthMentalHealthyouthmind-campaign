@@ -45,11 +45,11 @@ The website is themed around a youth mental health campaign called **YouthMind**
 - │── README.md
 - │
 - └── assets/
--     ├── css/
--     │   └── styles.css
--     ├── js/
--     │   └── main.js
--     └── images/
+-    ├── css/
+-    │   └── styles.css
+-    ├── js/
+-    │   └── main.js
+ -   └── images/
 
 ---
 
