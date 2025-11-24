@@ -36,20 +36,20 @@ The website is themed around a youth mental health campaign called **YouthMind**
 ---
 
 ## Folder Structure
-/ (root)
-│── index.html
-│── about.html
-│── resources.html
-│── gallery.html
-│── contact.html
-│── README.md
-│
-└── assets/
-    ├── css/
-    │   └── styles.css
-    ├── js/
-    │   └── main.js
-    └── images/
+- / (root)
+- │── index.html
+- │── about.html
+- │── resources.html
+- │── gallery.html
+- │── contact.html
+- │── README.md
+- │
+- └── assets/
+-     ├── css/
+-     │   └── styles.css
+-     ├── js/
+-     │   └── main.js
+-     └── images/
 
 ---
 
