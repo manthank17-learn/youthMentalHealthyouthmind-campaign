@@ -1,40 +1,170 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <title>YouthMind – Contact Us</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — YOUMATTER'S</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    /* Contact page specific */
+    .contact-container { max-width:1000px; margin:0 auto; padding:24px; text-align:center; }
+    .contact-grid { display:grid; grid-template-columns: 1fr 420px; gap:28px; align-items:start; justify-items:center; }
+    .contact-card { width:100%; background:#fff; padding:18px; border-radius:12px; box-shadow:0 12px 30px rgba(2,6,23,0.06); text-align:left; }
+    .contact-card h3 { margin-top:0; }
+    .form-row { margin-bottom:12px; }
+    label { display:block; font-weight:600; margin-bottom:6px; }
+    input[type="text"], input[type="email"], textarea, select {
+      width:100%; padding:10px; border-radius:8px; border:1px solid #e6e9ef; box-sizing:border-box;
+      font-size:1rem;
+    }
+    textarea { min-height:120px; resize:vertical; }
+    .small-muted { color:var(--muted); font-size:0.95rem; }
+    .contact-side { width:100%; max-width:420px; text-align:center; }
+    .contact-side img { width:100%; height:auto; border-radius:10px; margin-bottom:12px; }
+    .quick-info { text-align:left; margin-top:8px; }
+    .inline { display:inline-block; vertical-align:middle; }
+    .checkbox-row { display:flex; gap:10px; align-items:center; }
+    .btn-row { display:flex; gap:10px; justify-content:flex-start; flex-wrap:wrap; }
+    @media (max-width:980px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      .contact-side { order:-1; } /* image first on mobile */
+    }
+  </style>
 </head>
 <body>
 
-<header>
-    <h1>YouthMind</h1>
-    <nav>
+  <!-- header (consistent) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand logo" href="index.html">
+        <span class="logo-mark">💜</span>
+        <span class="logo-text">YOUMATTER'S</span>
+      </a>
+
+      <nav class="main-nav">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="resources.html">Resources</a>
         <a href="gallery.html">Gallery</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-</header>
+        <a href="contact.html" class="cta">Contact</a>
+      </nav>
 
-<section>
-    <h2>Contact Us</h2>
+      <button class="nav-toggle">☰</button>
+    </div>
+  </header>
 
-    <form onsubmit="alert('Demo form (no backend connected)'); return false;">
-        <label>Name:</label><br>
-        <input type="text"><br><br>
+  <main>
+    <section class="contact-container">
+      <h1>Contact Us</h1>
+      <p class="muted">Reach out for help, volunteer sign-up, event partnerships, or to share anonymous feedback. We’ll get back to you as soon as possible.</p>
 
-        <label>Email:</label><br>
-        <input type="email"><br><br>
+      <div class="contact-grid">
 
-        <label>Message:</label><br>
-        <textarea rows="5"></textarea><br><br>
+        <!-- Main form card -->
+        <div class="contact-card">
+          <h3>Send a message</h3>
+          <p class="small-muted">This form is a demo. Replace the onsubmit handler with your backend endpoint (Formspree, Netlify Forms, or your server) to receive real submissions.</p>
 
-        <button type="submit">Send</button>
-    </form>
+          <!-- Example: change form action to a Formspree URL to enable real submissions -->
+          <!-- <form action="https://formspree.io/f/your-id" method="POST"> -->
+          <form id="contactForm" onsubmit="event.preventDefault(); demoSubmit();">
+            <div class="form-row">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" required>
+            </div>
 
-</section>
+            <div class="form-row">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required>
+            </div>
 
+            <div class="form-row">
+              <label for="reason">Reason for contact</label>
+              <select id="reason" name="reason" required>
+                <option value="">Choose a reason</option>
+                <option>General support</option>
+                <option>Volunteer / partner</option>
+                <option>Media / press</option>
+                <option>Report concern (confidential)</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+            </div>
+
+            <div class="form-row checkbox-row">
+              <input id="anonymous" type="checkbox" name="anonymous" value="yes">
+              <label for="anonymous" style="margin:0;">Send anonymously (no name/email will be recorded)</label>
+            </div>
+
+            <div style="margin-top:14px;" class="btn-row">
+              <button class="btn primary" type="submit">Send message</button>
+              <button class="btn ghost" type="button" onclick="document.getElementById('contactForm').reset();">Reset</button>
+            </div>
+          </form>
+
+          <hr style="margin:18px 0; border:none; border-top:1px solid #f0f0f6;">
+
+          <h4>Volunteer sign-up</h4>
+          <p class="small-muted">Join as a peer listener or workshop host — training provided.</p>
+          <p><button class="btn" onclick="alert('Demo: Volunteer sign-up received — we will contact you.');">Sign up to volunteer</button></p>
+        </div>
+
+        <!-- Right column: quick contact info + image -->
+        <aside class="contact-side">
+          <!-- Using your uploaded image as a visual -->
+          <img src="/mnt/data/df535690-44bc-4e0a-8e7c-859d641223dd.png" alt="Support image">
+
+          <div class="contact-card" style="text-align:left;">
+            <h3>Quick contact</h3>
+            <div class="quick-info">
+              <p><strong>Helpline (24/7):</strong> <a href="tel:+1800000000">+1 800 000 000</a></p>
+              <p><strong>Youth line:</strong> <a href="tel:+441234567890">+44 1234 567890</a></p>
+              <p><strong>Email:</strong> <a href="mailto:hello@yoursite.org">hello@yoursite.org</a></p>
+              <p class="small-muted">For immediate danger, call your local emergency services.</p>
+            </div>
+
+            <hr style="margin:12px 0; border:none; border-top:1px solid #f0f0f6;">
+
+            <h4>Anonymous feedback</h4>
+            <p class="small-muted">Prefer not to share your details? Use the anonymous checkbox on the form and write your feedback — we'll treat it confidentially.</p>
+            <p style="margin-top:10px;">
+              <button class="btn-ghost" onclick="alert('Demo: Anonymous feedback noted. Thank you.');">Leave anonymous feedback</button>
+            </p>
+          </div>
+        </aside>
+
+      </div> <!-- /contact-grid -->
+
+    </section>
+  </main>
+
+  <!-- footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> YOUMATTER'S — Contact</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Demo submit handler
+    function demoSubmit(){
+      const anon = document.getElementById('anonymous').checked;
+      if(anon){
+        alert('Thank you. Your anonymous message has been recorded (demo).');
+      } else {
+        const name = document.getElementById('name').value || 'Friend';
+        alert('Thanks, ' + name + '. Your message was sent (demo).');
+      }
+      // reset demo form after submit
+      document.getElementById('contactForm').reset();
+    }
+
+    // Optional: show formspree instructions in console
+    console.log('To enable real form submissions: set <form action="https://formspree.io/f/your-id" method="POST"> and remove onsubmit handler.');
+  </script>
 </body>
 </html>
-
