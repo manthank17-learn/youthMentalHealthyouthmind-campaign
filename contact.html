@@ -6,7 +6,7 @@
   <title>Contact — YOUMATTER'S</title>
   <link rel="stylesheet" href="assets/css/styles.css">
   <style>
-    /* Contact page specific */
+    
     .contact-container { max-width:1000px; margin:0 auto; padding:24px; text-align:center; }
     .contact-grid { display:grid; grid-template-columns: 1fr 420px; gap:28px; align-items:start; justify-items:center; }
     .contact-card { width:100%; background:#fff; padding:18px; border-radius:12px; box-shadow:0 12px 30px rgba(2,6,23,0.06); text-align:left; }
@@ -27,13 +27,13 @@
     .btn-row { display:flex; gap:10px; justify-content:flex-start; flex-wrap:wrap; }
     @media (max-width:980px) {
       .contact-grid { grid-template-columns: 1fr; }
-      .contact-side { order:-1; } /* image first on mobile */
+      .contact-side { order:-1; }
     }
   </style>
 </head>
 <body>
 
-  <!-- header (consistent) -->
+  
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand logo" href="index.html">
@@ -60,13 +60,12 @@
 
       <div class="contact-grid">
 
-        <!-- Main form card -->
+      
         <div class="contact-card">
           <h3>Send a message</h3>
           <p class="small-muted">This form is a demo. Replace the onsubmit handler with your backend endpoint (Formspree, Netlify Forms, or your server) to receive real submissions.</p>
 
-          <!-- Example: change form action to a Formspree URL to enable real submissions -->
-          <!-- <form action="https://formspree.io/f/your-id" method="POST"> -->
+        
           <form id="contactForm" onsubmit="event.preventDefault(); demoSubmit();">
             <div class="form-row">
               <label for="name">Name</label>
@@ -112,9 +111,9 @@
           <p><button class="btn" onclick="alert('Demo: Volunteer sign-up received — we will contact you.');">Sign up to volunteer</button></p>
         </div>
 
-        <!-- Right column: quick contact info + image -->
+      
         <aside class="contact-side">
-          <!-- Using your uploaded image as a visual -->
+        
           <img src="/mnt/data/df535690-44bc-4e0a-8e7c-859d641223dd.png" alt="Support image">
 
           <div class="contact-card" style="text-align:left;">
@@ -136,12 +135,12 @@
           </div>
         </aside>
 
-      </div> <!-- /contact-grid -->
+      </div> 
 
     </section>
   </main>
 
-  <!-- footer -->
+ 
   <footer class="site-footer">
     <div class="container footer-inner">
       <p>© <span id="year"></span> YOUMATTER'S — Contact</p>
@@ -150,7 +149,7 @@
 
   <script src="assets/js/main.js"></script>
   <script>
-    // Demo submit handler
+   
     function demoSubmit(){
       const anon = document.getElementById('anonymous').checked;
       if(anon){
@@ -159,11 +158,11 @@
         const name = document.getElementById('name').value || 'Friend';
         alert('Thanks, ' + name + '. Your message was sent (demo).');
       }
-      // reset demo form after submit
+      
       document.getElementById('contactForm').reset();
     }
 
-    // Optional: show formspree instructions in console
+    
     console.log('To enable real form submissions: set <form action="https://formspree.io/f/your-id" method="POST"> and remove onsubmit handler.');
   </script>
 </body>
