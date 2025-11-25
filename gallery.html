@@ -6,7 +6,7 @@
   <title>Gallery — YOUMATTER'S</title>
   <link rel="stylesheet" href="assets/css/styles.css">
   <style>
-    /* gallery-specific styles */
+    
     .gallery-intro { max-width:900px; margin: 0 auto 18px; text-align:center; }
     .gallery-grid {
       display: grid;
@@ -46,13 +46,12 @@
       font-size:.95rem;
     }
 
-    /* lightbox modal overrides (keeps center look) */
     .gallery-modal .modal-content { text-align:center; }
     .gallery-modal .modal-content img { max-width:100%; height:auto; border-radius:8px; margin-bottom:12px; }
     .gallery-modal .modal-controls { display:flex; gap:10px; justify-content:center; align-items:center; margin-top:8px; }
     .modal-caption { text-align:left; margin-top:8px; color:#333; }
 
-    /* small responsiveness */
+   
     @media (max-width:600px) {
       .thumb { min-height:140px; }
     }
@@ -60,7 +59,7 @@
 </head>
 <body>
 
-  <!-- Header (consistent) -->
+  
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand logo" href="index.html">
@@ -88,7 +87,7 @@
       </div>
 
       <div class="gallery-grid" id="galleryGrid">
-        <!-- Thumbnails: update captions as needed -->
+       
         <div class="thumb" data-src="assets/images/1.jpeg" data-caption="Peer Listening workshop — campus circle">
           <img src="assets/images/1.jpeg" alt="Peer Listening">
           <div class="thumb-caption">Peer Listening</div>
@@ -138,7 +137,7 @@
           <img src="assets/images/16.jpeg" alt="Closing circle">
           <div class="thumb-caption">Closing Circle</div>
         </div>
-      </div> <!-- /gallery-grid -->
+      </div> 
 
       <section style="margin-top:26px; max-width:1000px; margin-left:auto; margin-right:auto; text-align:center;">
         <h2>Share Your Photo</h2>
@@ -147,7 +146,7 @@
     </section>
   </main>
 
-  <!-- Lightbox modal -->
+
   <div id="galleryModal" class="modal gallery-modal" aria-hidden="true">
     <div class="modal-content">
       <button class="modal-close" aria-label="Close">✕</button>
@@ -165,18 +164,18 @@
     </div>
   </div>
 
-  <!-- footer -->
+ 
   <footer class="site-footer">
     <div class="container footer-inner">
       <p>© <span id="year"></span> YOUMATTER'S — Gallery</p>
     </div>
   </footer>
 
-  <!-- reuse main.js for year + nav toggle -->
+  
   <script src="assets/js/main.js"></script>
 
   <script>
-    // Lightbox gallery logic
+   
     (function(){
       const thumbs = Array.from(document.querySelectorAll('.thumb'));
       const modal = document.getElementById('galleryModal');
@@ -226,7 +225,7 @@
         openAt(currentIndex + 1);
       });
 
-      // keyboard navigation
+     
       document.addEventListener('keydown', (e)=>{
         if(modal.getAttribute('aria-hidden') === 'true') return;
         if(e.key === 'ArrowLeft') prevBtn.click();
