@@ -1,32 +1,124 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <title>YouthMind – Home</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>YouthMind — Empowering Young Minds</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
+  <!-- Header with logo -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand logo" href="index.html">
+        <span class="logo-mark">💜</span>
+        <span class="logo-text">YOUMATTER'S</span>
+      </a>
 
-<header>
-    <h1>YouthMind</h1>
-    <nav>
+      <nav class="main-nav">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="resources.html">Resources</a>
         <a href="gallery.html">Gallery</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-</header>
+        <a href="contact.html" class="cta">Contact</a>
+      </nav>
 
-<section>
-    <h2>You're Not Alone</h2>
-    <p>YouthMind is a youth mental health awareness campaign created to support young people.</p>
-</section>
+      <button class="nav-toggle" aria-label="open navigation">☰</button>
+    </div>
+  </header>
 
-<footer>
-    <p>© <span id="year"></span> YouthMind</p>
-</footer>
+  <!-- Hero -->
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h1>You're not alone. Speak. Share. Heal.</h1>
+          <p>YouthMind (YOUMATTER'S) connects young people with mental health resources, peer support, and community outreach to build resilience and hope.</p>
+          <div class="hero-actions">
+            <a href="resources.html" class="btn primary">Find Help Now</a>
+            <a href="contact.html" class="btn ghost">Volunteer</a>
+          </div>
+        </div>
 
-<script src="assets/js/main.js"></script>
+        <div class="hero-media">
+          <!-- local uploaded image path (replace with your image or remote URL if needed) -->
+          <img src="/mnt/data/df535690-44bc-4e0a-8e7c-859d641223dd.png" alt="Peer support" />
+        </div>
+      </div>
+    </section>
 
+    <!-- What we do (interactive image cards) -->
+    <section class="what-we-do container">
+      <h2>What We Do</h2>
+      <p class="muted">We create safe, youth-led spaces where young people can learn, connect and get help. Click an area to learn more.</p>
+
+      <div class="cards-grid">
+        <div class="card" data-title="Peer Listening" data-desc="Trained volunteers provide one-on-one peer listening sessions to support you through stress, anxiety and isolation.">
+          <img src="/mnt/data/df535690-44bc-4e0a-8e7c-859d641223dd.png" alt="Peer Listening">
+          <div class="card-overlay">
+            <h3>Peer Listening</h3>
+          </div>
+        </div>
+
+        <div class="card" data-title="Helplines & Quick Help" data-desc="24/7 quick help numbers, text support and guidance for immediate assistance and referrals.">
+          <img src="/mnt/data/df535690-44bc-4e0a-8e7c-859d641223dd.png" alt="Helplines">
+          <div class="card-overlay">
+            <h3>Helplines</h3>
+          </div>
+        </div>
+
+        <div class="card" data-title="Workshops" data-desc="Free workshops on stress management, study-life balance, mindfulness, and emotional skills for youth.">
+          <img src="/mnt/data/df535690-44bc-4e0a-8e7c-859d641223dd.png" alt="Workshops">
+          <div class="card-overlay">
+            <h3>Workshops</h3>
+          </div>
+        </div>
+
+        <div class="card" data-title="Community Events" data-desc="Campus outreach, pop-up booths and group circles that reduce stigma and build community support.">
+          <img src="/mnt/data/df535690-44bc-4e0a-8e7c-859d641223dd.png" alt="Events">
+          <div class="card-overlay">
+            <h3>Community Events</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission / impact -->
+    <section class="impact container">
+      <h2>Our Mission</h2>
+      <p>To reduce stigma, increase access to mental health knowledge, and create safe spaces where young people can connect, learn, and recover together.</p>
+      <div class="impact-stats">
+        <div><strong>5,000+</strong><span>Youth reached</span></div>
+        <div><strong>120+</strong><span>Peer volunteers trained</span></div>
+        <div><strong>300+</strong><span>Workshops run</span></div>
+      </div>
+    </section>
+
+    <section class="signup container">
+      <h2>Join the movement</h2>
+      <p>Sign up for our newsletter — tips, events, and stories delivered to your inbox.</p>
+      <form id="signup-form" class="inline-form" onsubmit="event.preventDefault(); alert('Demo signup — replace with real backend.');">
+        <input type="email" placeholder="Your email" required />
+        <button class="btn primary">Subscribe</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Modal (hidden) -->
+  <div id="cardModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close">✕</button>
+      <h3 id="modalTitle"></h3>
+      <p id="modalDesc"></p>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> YOUMATTER'S — All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
