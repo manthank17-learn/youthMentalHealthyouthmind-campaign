@@ -1,26 +1,245 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <title>YouthMind – Gallery</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gallery — YOUMATTER'S</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    /* gallery-specific styles */
+    .gallery-intro { max-width:900px; margin: 0 auto 18px; text-align:center; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      max-width:1100px;
+      margin: 18px auto;
+      align-items: stretch;
+    }
+    .thumb {
+      position: relative;
+      overflow: hidden;
+      border-radius:12px;
+      background:#fff;
+      box-shadow:0 10px 30px rgba(2,6,23,0.06);
+      cursor: pointer;
+      min-height:160px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .thumb img {
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition: transform .25s ease;
+    }
+    .thumb:hover img { transform: scale(1.05); }
+    .thumb-caption {
+      position:absolute;
+      left:0; right:0; bottom:0;
+      padding:10px 12px;
+      background: linear-gradient(0deg, rgba(0,0,0,0.6), transparent);
+      color:#fff;
+      font-weight:700;
+      font-size:.95rem;
+    }
+
+    /* lightbox modal overrides (keeps center look) */
+    .gallery-modal .modal-content { text-align:center; }
+    .gallery-modal .modal-content img { max-width:100%; height:auto; border-radius:8px; margin-bottom:12px; }
+    .gallery-modal .modal-controls { display:flex; gap:10px; justify-content:center; align-items:center; margin-top:8px; }
+    .modal-caption { text-align:left; margin-top:8px; color:#333; }
+
+    /* small responsiveness */
+    @media (max-width:600px) {
+      .thumb { min-height:140px; }
+    }
+  </style>
 </head>
 <body>
 
-<header>
-    <h1>YouthMind</h1>
-    <nav>
+  <!-- Header (consistent) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand logo" href="index.html">
+        <span class="logo-mark">💜</span>
+        <span class="logo-text">YOUMATTER'S</span>
+      </a>
+
+      <nav class="main-nav">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="resources.html">Resources</a>
         <a href="gallery.html">Gallery</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-</header>
+        <a href="contact.html" class="cta">Contact</a>
+      </nav>
 
-<section>
-    <h2>Gallery</h2>
-    <p>Photos and moments from youth outreach and awareness events.</p>
-</section>
+      <button class="nav-toggle">☰</button>
+    </div>
+  </header>
 
+  <main>
+    <section class="container">
+      <div class="gallery-intro">
+        <h1>Gallery — Moments & Events</h1>
+        <p class="muted">Photos from our outreach, workshops, peer circles and community events. Click any image to view it larger, navigate, or download.</p>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Thumbnails: update captions as needed -->
+        <div class="thumb" data-src="assets/images/1.jpeg" data-caption="Peer Listening workshop — campus circle">
+          <img src="assets/images/1.jpeg" alt="Peer Listening">
+          <div class="thumb-caption">Peer Listening</div>
+        </div>
+
+        <div class="thumb" data-src="assets/images/4.jpeg" data-caption="Youth support group meeting">
+          <img src="assets/images/4.jpeg" alt="Youth group">
+          <div class="thumb-caption">Youth Group</div>
+        </div>
+
+        <div class="thumb" data-src="assets/images/5.jpeg" data-caption="Workshop session — mindfulness practice">
+          <img src="assets/images/5.jpeg" alt="Workshop">
+          <div class="thumb-caption">Workshop</div>
+        </div>
+
+        <div class="thumb" data-src="assets/images/6.png" data-caption="Community outreach poster">
+          <img src="assets/images/6.png" alt="Outreach poster">
+          <div class="thumb-caption">Outreach</div>
+        </div>
+
+        <div class="thumb" data-src="assets/images/download2.jpeg" data-caption="Campus pop-up booth">
+          <img src="assets/images/download2.jpeg" alt="Pop-up booth">
+          <div class="thumb-caption">Pop-up Booth</div>
+        </div>
+
+        <div class="thumb" data-src="assets/images/11.jpeg" data-caption="Volunteer training session">
+          <img src="assets/images/11.jpeg" alt="Volunteer training">
+          <div class="thumb-caption">Volunteer Training</div>
+        </div>
+
+        <div class="thumb" data-src="assets/images/12.jpeg" data-caption="Group circle — exam season support">
+          <img src="assets/images/12.jpeg" alt="Group circle">
+          <div class="thumb-caption">Group Circle</div>
+        </div>
+
+        <div class="thumb" data-src="assets/images/13.jpeg" data-caption="Workshop activities — breathing exercises">
+          <img src="assets/images/13.jpeg" alt="Activities">
+          <div class="thumb-caption">Activities</div>
+        </div>
+
+        <div class="thumb" data-src="assets/images/14.jpeg" data-caption="Community event — awareness day">
+          <img src="assets/images/14.jpeg" alt="Awareness day">
+          <div class="thumb-caption">Awareness Day</div>
+        </div>
+
+        <div class="thumb" data-src="assets/images/15.jpeg" data-caption="Mindfulness in action — small group">
+          <img src="assets/images/15.jpeg" alt="Mindfulness">
+          <div class="thumb-caption">Mindfulness</div>
+        </div>
+
+        <div class="thumb" data-src="assets/images/16.jpeg" data-caption="Closing circle — volunteers and attendees">
+          <img src="assets/images/16.jpeg" alt="Closing circle">
+          <div class="thumb-caption">Closing Circle</div>
+        </div>
+      </div> <!-- /gallery-grid -->
+
+      <section style="margin-top:26px; max-width:1000px; margin-left:auto; margin-right:auto; text-align:center;">
+        <h2>Share Your Photo</h2>
+        <p class="small-muted">If you attended an event and want your photo included in the gallery, email us or use the contact form to send an image (please get permission from people in photos).</p>
+      </section>
+    </section>
+  </main>
+
+  <!-- Lightbox modal -->
+  <div id="galleryModal" class="modal gallery-modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close">✕</button>
+
+      <div id="modalInner">
+        <img id="modalImage" src="" alt="Gallery image">
+        <div class="modal-caption" id="modalCaption"></div>
+
+        <div class="modal-controls">
+          <button class="btn-ghost" id="prevBtn">◀ Prev</button>
+          <a id="downloadBtn" class="btn" href="#" download>Download</a>
+          <button class="btn-ghost" id="nextBtn">Next ▶</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> YOUMATTER'S — Gallery</p>
+    </div>
+  </footer>
+
+  <!-- reuse main.js for year + nav toggle -->
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    // Lightbox gallery logic
+    (function(){
+      const thumbs = Array.from(document.querySelectorAll('.thumb'));
+      const modal = document.getElementById('galleryModal');
+      const modalImg = document.getElementById('modalImage');
+      const modalCaption = document.getElementById('modalCaption');
+      const downloadBtn = document.getElementById('downloadBtn');
+      const closeBtn = modal.querySelector('.modal-close');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+
+      let currentIndex = -1;
+
+      function openAt(index) {
+        const thumb = thumbs[index];
+        if(!thumb) return;
+        const src = thumb.getAttribute('data-src');
+        const caption = thumb.getAttribute('data-caption') || '';
+        modalImg.src = src;
+        modalImg.alt = caption;
+        modalCaption.textContent = caption;
+        downloadBtn.href = src;
+        modal.setAttribute('aria-hidden', 'false');
+        currentIndex = index;
+      }
+
+      function closeModal() {
+        modal.setAttribute('aria-hidden', 'true');
+        modalImg.src = '';
+        currentIndex = -1;
+      }
+
+      thumbs.forEach((t, i) => {
+        t.addEventListener('click', ()=> openAt(i));
+      });
+
+      closeBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e) => {
+        if(e.target === modal) closeModal();
+      });
+
+      prevBtn.addEventListener('click', ()=> {
+        if(currentIndex <= 0) return;
+        openAt(currentIndex - 1);
+      });
+      nextBtn.addEventListener('click', ()=> {
+        if(currentIndex >= thumbs.length - 1) return;
+        openAt(currentIndex + 1);
+      });
+
+      // keyboard navigation
+      document.addEventListener('keydown', (e)=>{
+        if(modal.getAttribute('aria-hidden') === 'true') return;
+        if(e.key === 'ArrowLeft') prevBtn.click();
+        if(e.key === 'ArrowRight') nextBtn.click();
+        if(e.key === 'Escape') closeBtn.click();
+      });
+    })();
+  </script>
 </body>
 </html>
+
