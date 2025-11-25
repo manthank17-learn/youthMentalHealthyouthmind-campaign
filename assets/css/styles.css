@@ -1,4 +1,4 @@
-/* ----------------- BASE ----------------- */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -11,7 +11,7 @@ header {
     padding: 15px;
 }
 
-/* center container globally */
+
 .container {
     max-width: 1100px;
     margin: 0 auto;
@@ -35,12 +35,11 @@ footer {
     text-align: center;
 }
 
-/* ----------------- LOGO ----------------- */
 .logo { display:flex; align-items:center; gap:8px; text-decoration:none; justify-content:center; }
 .logo-mark { display:inline-block; font-size:1.2rem; }
 .logo-text { font-weight:800; color:white; letter-spacing:0.5px; font-size:1.05rem; }
 
-/* ----------------- HEADER FIX ----------------- */
+
 .header-inner {
     display: flex;
     align-items: center;
@@ -49,7 +48,7 @@ footer {
     flex-wrap: wrap;
 }
 
-/* center the nav */
+
 .main-nav {
     display: flex;
     gap: 18px;
@@ -67,7 +66,7 @@ footer {
     cursor: pointer;
 }
 
-/* ----------------- HERO ----------------- */
+
 .hero-inner {
     display: flex;
     gap: 30px;
@@ -95,7 +94,7 @@ footer {
     border-radius: 10px;
 }
 
-/* ----------------- WHAT WE DO CARDS ----------------- */
+
 .what-we-do h2 { margin-top: 0; }
 
 .cards-grid {
@@ -144,7 +143,6 @@ footer {
     transform: scale(1.08);
 }
 
-/* ----------------- MODAL ----------------- */
 .modal {
     position: fixed;
     inset: 0;
@@ -180,7 +178,7 @@ footer {
     cursor: pointer;
 }
 
-/* ----------------- IMPACT STATS ----------------- */
+
 .impact-stats {
     display: flex;
     justify-content: center;
@@ -192,12 +190,11 @@ footer {
     text-align: center;
 }
 
-/* ----------------- GLOBAL TEXT CENTERING ----------------- */
+
 h1, h2, h3, .muted {
     text-align: center;
 }
 
-/* ----------------- RESPONSIVE ----------------- */
 @media (max-width: 1000px) {
     .cards-grid { grid-template-columns: repeat(2, 1fr); }
 }
