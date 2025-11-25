@@ -1,32 +1,172 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <title>YouthMind – Resources</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resources — YOUMATTER'S</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    /* small page-specific tweaks */
+    .helplines-list { list-style:none; padding:0; max-width:760px; margin: 0 auto 18px; text-align:left; }
+    .helplines-list li{ background:#fff; margin:8px 0; padding:12px 14px; border-radius:8px; box-shadow:0 6px 16px rgba(0,0,0,.05); display:flex; justify-content:space-between; align-items:center;}
+    .helplines-meta { color:#333; font-weight:600; }
+    .helplines-actions a { margin-left:10px; text-decoration:none; color:var(--accent); font-weight:700; }
+    .resources-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; max-width:1100px; margin:18px auto; }
+    .resource-card { background:#fff; padding:14px; border-radius:12px; box-shadow:0 8px 24px rgba(2,6,23,0.06); text-align:left; }
+    .qr-box { text-align:center; padding:12px; }
+    input[type="text"]{ width:100%; padding:8px; border-radius:8px; border:1px solid #e6e9ef; }
+    .small-muted { color:var(--muted); font-size:0.95rem; }
+    .btn-ghost { background:transparent; border:1px solid #d6d9e6; padding:8px 12px; border-radius:8px; }
+  </style>
 </head>
 <body>
 
-<header>
-    <h1>YouthMind</h1>
-    <nav>
+  <!-- header (same branding) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand logo" href="index.html">
+        <span class="logo-mark">💜</span>
+        <span class="logo-text">YOUMATTER'S</span>
+      </a>
+
+      <nav class="main-nav">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="resources.html">Resources</a>
         <a href="gallery.html">Gallery</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-</header>
+        <a href="contact.html" class="cta">Contact</a>
+      </nav>
 
-<section>
-    <h2>Resources & Support</h2>
-    <ul>
-        <li>Peer Support Sessions</li>
-        <li>Helpline Numbers</li>
-        <li>Mental Health Guides</li>
-        <li>Workshops & Events</li>
-    </ul>
-</section>
+      <button class="nav-toggle">☰</button>
+    </div>
+  </header>
 
+  <main>
+    <section class="container">
+      <h1>Support & Resources</h1>
+      <p class="muted">Quick help, peer support, downloadable guides and ways to join our community.</p>
+
+      <!-- HELPLINES -->
+      <h2 style="margin-top:20px; text-align:center;">Quick Helplines</h2>
+      <ul class="helplines-list" aria-label="Helplines">
+        <li>
+          <div>
+            <div class="helplines-meta">Emergency Support</div>
+            <div class="small-muted">Open 24/7 — immediate help for crisis</div>
+          </div>
+          <div class="helplines-actions">
+            <a href="tel:+1800000000">Call</a>
+            <a href="sms:+12345">Text</a>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <div class="helplines-meta">Youth Support Line</div>
+            <div class="small-muted">Peer-led listening (weekday evenings)</div>
+          </div>
+          <div class="helplines-actions">
+            <a href="tel:+441234567890">Call</a>
+            <a href="sms:+441234567890">Text</a>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <div class="helplines-meta">Crisis Chat (online)</div>
+            <div class="small-muted">Live chat on our website (demo)</div>
+          </div>
+          <div class="helplines-actions">
+            <a href="contact.html">Open</a>
+          </div>
+        </li>
+      </ul>
+
+      <!-- RESOURCES GRID -->
+      <div class="resources-grid">
+
+        <div class="resource-card">
+          <h3>Peer Support</h3>
+          <p class="small-muted">Sign up for a free 30-minute peer listening session with a trained volunteer.</p>
+          <p><button class="btn" onclick="alert('Demo: Request session — we will contact you.');">Request Session</button></p>
+        </div>
+
+        <div class="resource-card">
+          <h3>Downloads & Guides</h3>
+          <p class="small-muted">Practical guides for students: study stress, sleep, supporting a friend.</p>
+          <p>
+            <!-- update file links if you upload real PDFs to assets/ -->
+            <a class="btn-ghost" href="assets/guides/coping-with-stress.pdf" target="_blank">Download Stress Guide (PDF)</a>
+          </p>
+        </div>
+
+        <div class="resource-card">
+          <h3>Workshops</h3>
+          <p class="small-muted">We run free workshops on campus — sign up to host a session.</p>
+          <p><button class="btn" onclick="alert('Demo: Workshop signup — we will follow up.');">Host a Workshop</button></p>
+        </div>
+
+        <div class="resource-card">
+          <h3>Community — WhatsApp Group</h3>
+          <p class="small-muted">Join our peer community to get event updates and friendly check-ins.</p>
+          <p>
+            <!-- Example invite link placeholder — replace with your real invite -->
+            <input id="waLink" type="text" placeholder="Paste WhatsApp invite link (https://chat.whatsapp.com/...)">
+          </p>
+          <p class="qr-box">
+            <button class="btn" id="genQr">Generate QR</button>
+          </p>
+          <div id="qrResult" class="qr-box"></div>
+        </div>
+
+      </div> <!-- /resources-grid -->
+
+      <!-- Additional notes -->
+      <section style="margin-top:28px; max-width:900px; margin-left:auto; margin-right:auto;">
+        <h3>How to use the QR generator</h3>
+        <p class="small-muted">Paste a full URL (for example a WhatsApp invite link or event page) and click <strong>Generate QR</strong>. A QR image will appear — users can scan it with their phone to open the link.</p>
+
+        <h3 style="margin-top:22px;">Events & Timetable (Demo)</h3>
+        <ul style="text-align:left; max-width:760px; margin:8px auto;">
+          <li><strong>Weekly Peer Circle:</strong> Wednesdays, 6pm (Campus Hall B)</li>
+          <li><strong>Mindfulness Workshop:</strong> First Saturday of every month</li>
+          <li><strong>Pop-up Booth:</strong> Exam season wellbeing check-ins</li>
+        </ul>
+      </section>
+
+    </section>
+  </main>
+
+  <!-- footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> YOUMATTER'S — Resources</p>
+    </div>
+  </footer>
+
+  <!-- reuse main.js for year + modal; add small QR script inline -->
+  <script src="assets/js/main.js"></script>
+  <script>
+    // QR generator: uses Google Chart API to create an image for a given URL
+    (function(){
+      const genBtn = document.getElementById('genQr');
+      const qrResult = document.getElementById('qrResult');
+      const waInput = document.getElementById('waLink');
+
+      genBtn.addEventListener('click', function(){
+        const raw = (waInput.value || '').trim();
+        if(!raw){
+          alert('Paste a full URL to generate a QR code (e.g. a WhatsApp invite link).');
+          return;
+        }
+        // encode URL for the QR API
+        const encoded = encodeURIComponent(raw);
+        const size = 300;
+        // Google Chart QR API (simple & free): chart.googleapis.com/chart?chs=300x300&cht=qr&chl=...
+        const qrUrl = 'https://chart.googleapis.com/chart?chs=' + size + 'x' + size + '&cht=qr&chl=' + encoded;
+        qrResult.innerHTML = '<p class="small-muted">Scan this QR to open the link:</p><img src="' + qrUrl + '" alt="QR code" style="max-width:260px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.08)">'
+      });
+    })();
+  </script>
 </body>
 </html>
-
